@@ -11,9 +11,15 @@ $VeryLightGray: hsl(0, 0%, 98%);
 $White: hsl(0, 0%, 100%);
 
 
-body{
+body {
+    margin: 0;
+    display: flex;
+    place-items: center;
+    min-width: 320px;
+    min-height: 100vh;
     font-family: $fontNunito;
     background-color: $VeryLightGray;
+    line-height: 24px;
 }
 
 .countries{
@@ -90,8 +96,38 @@ body{
             .filter__select{
                 // Personalizar Selector
                 width: 200px;
+                background-color: $White;
+                border: 1px solid $VeryLightGray;
                 .select__content{
                     height: 55px;
+                    details{
+                        font-size: 14px;
+                        cursor: pointer;
+                        summary{
+                            height: 55px;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding-left: 25px;
+                            padding-right: 16px;
+                        }
+                        ul{
+                            position: absolute;
+                            list-style: none;
+                            padding: 0;
+                            width: 200px;
+                            background: $White;
+                            border-radius: 5px;
+                            margin-top: 5px;
+                            padding-top: 12px;
+                            li{
+                                padding: 2px 25px 2px 25px;
+                                &:hover{
+                                    background-color: $VeryLightGray;
+                                }
+                            }
+                        }
+                    }
                     select{
                         width: 100%;
                         height: 100%;

@@ -3,12 +3,19 @@ import React from 'react'
 const SelectorFilter = () => {
   return (
     <div className='select__content'>
-        <select name="select">
-            <option value="" disabled selected>Filter by Region</option>
-            <option value="value1">Value 1</option>
-            <option value="value2">Value 2</option>
-            <option value="value3">Value 3</option>
-        </select> 
+        <details>
+            <summary>
+                Filter by Region 
+                <ion-icon name="chevron-down-outline"></ion-icon>
+            </summary>
+            <ul>
+                <li>Africa</li>
+                <li>America</li>
+                <li>Asia</li>
+                <li>Europe</li>
+                <li>Oceania</li>
+            </ul>
+        </details>
     </div>
   )
 }
