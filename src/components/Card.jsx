@@ -1,23 +1,23 @@
-const Card = () => {
+const Card = ({country: {title, flag, population, region, capital}}) => {
   return (
     <div className="card__content">
         <div className="content__flag">
-
+            <img src={flag} />
         </div>
         <div className="content__data">
-            <span className="data__title">Germany</span>
+            <span className="data__title">{title}</span>
             <ul className="data__list">
                 <li>
                     <span>Population:</span>
-                    <span>81.770.900</span>
+                    <span>{population}</span>
                 </li>
                 <li>
                     <span>Region:</span>
-                    <span>Europe</span>
+                    <span>{region}</span>
                 </li>
                 <li>
                     <span>Capital:</span>
-                    <span>Berlin</span>
+                    <span>{capital}</span>
                 </li>
             </ul>
         </div>

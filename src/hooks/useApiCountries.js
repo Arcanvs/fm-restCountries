@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // .get('https://restcountries.com/v2/all')
-const useApi = (url) => {
+const useApiCountries = (url) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -22,4 +22,4 @@ const useApi = (url) => {
 
     return {data, error, loading}
 }
-export default useApi;
+export default useApiCountries;

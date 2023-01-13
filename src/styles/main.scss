@@ -150,6 +150,11 @@ body {
                 margin-bottom: 75px;
                 .content__flag{
                     height: 160px;
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
                 }
                 .content__data{
                     padding: 24px;
