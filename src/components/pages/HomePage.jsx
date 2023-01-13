@@ -1,6 +1,6 @@
 import React from 'react'
-import Card from './Card'
-import Filter from './Filter'
+import Card from '../Card'
+import Filter from '../Filter'
 
 const HomePage = () => {
   return (
