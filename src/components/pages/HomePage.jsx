@@ -2,6 +2,7 @@ import React from 'react'
 import Card from '../Card'
 import Filter from '../Filter'
 import useApiCountries from '../../hooks/useApiCountries'
+import { Link } from 'react-router-dom';
 
 const HomePage = () => {
   const {data, error, loading } = useApiCountries('https://restcountries.com/v2/all');
@@ -19,15 +20,17 @@ const HomePage = () => {
         <div className='body__card'>
           {data.map((item, index)=>{
             return (
-              <Card key={index} 
-                country={{
-                  title: item.name,
-                  flag: item.flags.png,
-                  population: item.population,
-                  region: item.region,
-                  capital: item.capital
-                }} 
-              />
+              <Link to={`/country/${item.capital}`} >
+                <Card key={index} 
+                  country={{
+                    title: item.name,
+                    flag: item.flags.png,
+                    population: item.population,
+                    region: item.region,
+                    capital: item.capital
+                  }} 
+                />
+              </Link>
             )
           })}
         </div>

@@ -11,7 +11,7 @@ function App() {
           <BrowserRouter>
             <Routes>
                 <Route path='/' element={<HomePage />} />
-                <Route path='/country/:id' element={<CountryPage />} />
+                <Route path='/country/:capital' element={<CountryPage />} />
                 <Route
                     path="*"
                     element={<Navigate to="/" replace />}

@@ -1,5 +1,10 @@
+import { useParams } from 'react-router-dom';
+
 const CountryPage = () => {
-  return (
+    // Capturar parametro URL
+    const { capital } = useParams();
+  
+    return (
     <div>CountryPage</div>
   )
 }

@@ -143,6 +143,10 @@ body {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
+            a{
+                text-decoration: none;
+                color: $VeryDarkBlue;
+            }
             .card__content{
                 background-color: $White;
                 width: 264px;
