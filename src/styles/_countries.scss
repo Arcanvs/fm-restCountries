@@ -34,14 +34,13 @@
         }
     }
     .countries__body{
-        margin-left: 80px;
-        margin-right: 80px;
         .body__filter{
             display: flex;
-            width: 100%;
             justify-content: space-between;
             margin-top: 46px;
             margin-bottom: 48px;
+            margin-left: 80px;
+            margin-right: 80px;
             /* .filter__selector{} */
             .filter__input{
                 width: 480px;
@@ -118,16 +117,20 @@
         .body__card{
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            /* justify-content: space-between; */
+            margin-left: 40px;
+            margin-right: 40px;
             a{
                 text-decoration: none;
                 color: $VeryDarkBlue;
             }
             .card__content{
                 background-color: $White;
-                width: 264px;
+                width: 260px;
                 height: 336px;
                 margin-bottom: 75px;
+                margin-right: 40px;
+                margin-left: 40px;
                 .content__flag{
                     height: 160px;
                     img{
