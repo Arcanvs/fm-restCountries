@@ -10,7 +10,6 @@ const CountryPage = () => {
     
     useEffect(()=>{
         setDataApi(dataApi);
-        console.log('DATA CAPITAL! ', dataApi )
       }, [dataApi]);
     
       if(loading){
@@ -45,7 +44,7 @@ const CountryPage = () => {
                                 </li>
                                 <li>
                                     <span>Population:</span>
-                                    <span>{dataApi[0].population}</span>
+                                    <span>{dataApi[0].population.toLocaleString()}</span>
                                 </li>
                                 <li>
                                     <span>Region:</span>
