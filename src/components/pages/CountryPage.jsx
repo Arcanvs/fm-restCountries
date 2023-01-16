@@ -1,57 +1,73 @@
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useParams, Link } from 'react-router-dom';
+import useApiCountries from '../../hooks/useApiCountries';
 
 const CountryPage = () => {
     // Capturar parametro URL
     const { capital } = useParams();
-  
+    const [dataApi, setDataApi] = useState([]);
+    const [loading, error] = useApiCountries(`https://restcountries.com/v2/capital/${capital}`, setDataApi);
+    
+    useEffect(()=>{
+        setDataApi(dataApi);
+        console.log('DATA CAPITAL! ', dataApi )
+      }, [dataApi]);
+    
+      if(loading){
+        return <div>loading capital</div>
+      }
+
+
     return (
         <>
             <div className='body__country'>
                 <div className='country__button'>
                     <button>
-                        <ion-icon name="arrow-back-outline"></ion-icon>    
-                        Back
+                        <Link to="/" >
+                            <ion-icon name="arrow-back-outline"></ion-icon>    
+                            Back
+                        </Link>
                     </button>
                 </div>
                 <div className='country__detail'>
                     <div className='detail__flag'>
-                        flag
+                        <img src={dataApi[0].flags.svg} />
                     </div>
                     <div className='datail__info'>
                         <div className='info__title'>
-                            <h2>Belgium</h2>
+                            <h2>{dataApi[0].name}</h2>
                         </div>
                         <div className='info__list'>
                             <ul>
                                 <li>
                                     <span>Native Name:</span>
-                                    <span>Belgie</span>
+                                    <span>{dataApi[0].nativeName}</span>
                                 </li>
                                 <li>
                                     <span>Population:</span>
-                                    <span>11,319,511</span>
+                                    <span>{dataApi[0].population}</span>
                                 </li>
                                 <li>
                                     <span>Region:</span>
-                                    <span>Europe</span>
+                                    <span>{dataApi[0].region}</span>
                                 </li>
                                 <li>
                                     <span>Sub Region:</span>
-                                    <span>Western Europe</span>
+                                    <span>{dataApi[0].subregion}</span>
                                 </li>
                                 <li>
                                     <span>Capital:</span>
-                                    <span>Brussels</span>
+                                    <span>{dataApi[0].capital}</span>
                                 </li>
                             </ul>
                             <ul>
                                 <li>
                                     <span>Top Level Domain:</span>
-                                    <span>be</span>
+                                    <span>{dataApi[0].topLevelDomain[0]}</span>
                                 </li>
                                 <li>
                                     <span>Currencies:</span>
-                                    <span>Euro</span>
+                                    <span>{dataApi[0].currencies[0].code}</span>
                                 </li>
                                 <li>
                                     <span>Languages:</span>
@@ -62,9 +78,13 @@ const CountryPage = () => {
                         <div className='info__border'>
                             <span>Border Countries:</span>
                             <ul>
-                                <li>France</li>
-                                <li>Germany</li>
-                                <li>Netherlands</li>
+                                {
+                                    dataApi[0].borders.map((border) => {
+                                        return (
+                                            <li>{border}</li>            
+                                        )
+                                    })
+                                }
                             </ul>
                         </div>
                     </div>
