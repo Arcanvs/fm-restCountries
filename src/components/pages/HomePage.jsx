@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Card from '../Card';
 import Filter from '../Filter';
 import useApiCountries from '../../hooks/useApiCountries';
+import ShowLoading from '../ShowLoading';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
@@ -19,7 +20,7 @@ const HomePage = () => {
   }, [dataApi]);
 
   if(loading){
-    return <div>loading data</div>
+    return <ShowLoading message='Load Countries' />
   }
 
   const handleFilterInput = (newValue) => {
@@ -61,7 +62,7 @@ const HomePage = () => {
       }
     }
   }
-  
+  /*  */
   return (
     <>
         <Filter onChangeFilterInput={handleFilterInput} onChangeFilterSelect={handleChangeSelect} />

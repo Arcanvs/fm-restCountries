@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import useApiCountries from '../../hooks/useApiCountries';
+import ShowLoading from '../ShowLoading';
 
 const CountryPage = () => {
     // Capturar parametro URL
@@ -13,7 +14,7 @@ const CountryPage = () => {
       }, [dataApi]);
     
       if(loading){
-        return <div>loading capital</div>
+        return <ShowLoading message='Load Country' />
       }
 
 
@@ -30,7 +31,9 @@ const CountryPage = () => {
                 </div>
                 <div className='country__detail'>
                     <div className='detail__flag'>
-                        <img src={dataApi[0].flags.svg} />
+                        <div>
+                            <img src={dataApi[0].flags.svg} />
+                        </div>
                     </div>
                     <div className='datail__info'>
                         <div className='info__title'>
@@ -63,27 +66,36 @@ const CountryPage = () => {
                                 <li>
                                     <span>Top Level Domain:</span>
                                     <span>{dataApi[0].topLevelDomain[0]}</span>
+                                    <span>
+                                        {dataApi[0].topLevelDomain.map((domain, index) => {
+                                            return index === 0 ? `${domain}` : `, ${domain}`
+                                        })}
+                                    </span>
                                 </li>
                                 <li>
                                     <span>Currencies:</span>
-                                    <span>{dataApi[0].currencies[0].code}</span>
+                                    <span>
+                                        {dataApi[0].currencies.map((currency, index) => {
+                                            return index === 0 ? `${currency.code}` : `, ${currency.code}`
+                                        })}
+                                    </span>
                                 </li>
                                 <li>
                                     <span>Languages:</span>
-                                    <span>Dutch, French, German</span>
+                                    <span>
+                                        {dataApi[0].languages.map((language, index) => {
+                                            return index === 0 ? `${language.name}` : `, ${language.name}`
+                                        })}
+                                    </span>
                                 </li>
                             </ul>
                         </div>
                         <div className='info__border'>
                             <span>Border Countries:</span>
                             <ul>
-                                {
-                                    dataApi[0].borders.map((border) => {
-                                        return (
-                                            <li>{border}</li>            
-                                        )
-                                    })
-                                }
+                                {dataApi[0].borders.map((border) => {
+                                    return <li>{border}</li>
+                                })}
                             </ul>
                         </div>
                     </div>
