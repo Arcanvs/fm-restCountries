@@ -69,7 +69,7 @@ const HomePage = () => {
         <div className='body__card'>
           {dataApiFiltered.map((item)=>{
             return (
-              <Link key={`link_${item.alpha2Code}_${item.area}`} to={`/country/${item.name}`} >
+              <Link key={`link_${item.alpha2Code}_${item.area}`} to={`/country/${item.alpha2Code}`} >
                 <Card key={`card_${item.alpha2Code}_${item.area}`} 
                   country={{
                     title: item.name,
