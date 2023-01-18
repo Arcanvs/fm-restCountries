@@ -37,7 +37,7 @@ const CountryPage = () => {
                     </div>
                     <div className='datail__info'>
                         <div className='info__title'>
-                            <h2>{dataApi.name}</h2>
+                            <h1>{dataApi.name}</h1>
                         </div>
                         <div className='info__list'>
                             <ul>
