@@ -9,7 +9,7 @@ function App() {
     setChangeTheme(theme);
   }
   return (
-    <div className="App">
+    <main className="App">
       <div className={changeTheme ? 'countries' : 'countries dark'}>
         <Navbar onChangeTheme={handleChangeTheme} />
         <div className="countries__body">
@@ -25,7 +25,7 @@ function App() {
           </BrowserRouter>
         </div>
       </div>
-    </div>
+    </main>
   )
 }
 

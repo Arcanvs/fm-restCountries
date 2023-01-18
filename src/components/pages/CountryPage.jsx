@@ -32,7 +32,7 @@ const CountryPage = () => {
                 <div className='country__detail'>
                     <div className='detail__flag'>
                         <div>
-                            <img src={dataApi[0].flags.svg} />
+                            <img src={dataApi[0].flags.svg} alt={dataApi[0].name} />
                         </div>
                     </div>
                     <div className='datail__info'>

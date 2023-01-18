@@ -2,7 +2,7 @@ const Card = ({country: {title, flag, population, region, capital}}) => {
   return (
     <div className="card__content">
         <div className="content__flag">
-            <img src={flag} />
+            <img src={flag} alt={title} />
         </div>
         <div className="content__data">
             <span className="data__title">{title}</span>
