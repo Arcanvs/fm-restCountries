@@ -1,13 +1,13 @@
 import { useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({onChangeTheme}) => {
     const [themeStyle, setThemeStyle] = useState(true);
     const handleThemeStyle = () => {
-        console.log('SETEAMOS ::: ', themeStyle);
+        onChangeTheme(!themeStyle);
         setThemeStyle(!themeStyle);
     }
   return (
-    <nav className="countires__nav">
+    <nav className={themeStyle ? 'countires__nav' : 'countires__nav dark'}>
         <ul>
             <li>
                 <span className="nav__logo">Where in the world?</span>

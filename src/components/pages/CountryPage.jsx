@@ -7,7 +7,7 @@ const CountryPage = () => {
     // Capturar parametro URL
     const { capital } = useParams();
     const [dataApi, setDataApi] = useState([]);
-    const [loading, error] = useApiCountries(`https://restcountries.com/v2/capital/${capital}`, setDataApi);
+    const [loading, error] = useApiCountries(`https://restcountries.com/v2/name/${capital}`, setDataApi);
     
     useEffect(()=>{
         setDataApi(dataApi);
@@ -65,27 +65,32 @@ const CountryPage = () => {
                             <ul>
                                 <li>
                                     <span>Top Level Domain:</span>
-                                    <span>{dataApi[0].topLevelDomain[0]}</span>
                                     <span>
-                                        {dataApi[0].topLevelDomain.map((domain, index) => {
-                                            return index === 0 ? `${domain}` : `, ${domain}`
-                                        })}
+                                        {dataApi[0].topLevelDomain ? 
+                                            dataApi[0].topLevelDomain.map((domain, index) => {
+                                                return index === 0 ? `${domain}` : `, ${domain}`
+                                            }) : false
+                                        }
                                     </span>
                                 </li>
                                 <li>
                                     <span>Currencies:</span>
                                     <span>
-                                        {dataApi[0].currencies.map((currency, index) => {
-                                            return index === 0 ? `${currency.code}` : `, ${currency.code}`
-                                        })}
+                                        {dataApi[0].currencies ?
+                                            dataApi[0].currencies.map((currency, index) => {
+                                                return index === 0 ? `${currency.code}` : `, ${currency.code}`
+                                            }) : false
+                                        }
                                     </span>
                                 </li>
                                 <li>
                                     <span>Languages:</span>
                                     <span>
-                                        {dataApi[0].languages.map((language, index) => {
-                                            return index === 0 ? `${language.name}` : `, ${language.name}`
-                                        })}
+                                        {dataApi[0].languages ? 
+                                            dataApi[0].languages.map((language, index) => {
+                                                return index === 0 ? `${language.name}` : `, ${language.name}`
+                                            }) : false
+                                        }
                                     </span>
                                 </li>
                             </ul>
@@ -93,9 +98,11 @@ const CountryPage = () => {
                         <div className='info__border'>
                             <span>Border Countries:</span>
                             <ul>
-                                {dataApi[0].borders.map((border) => {
-                                    return <li>{border}</li>
-                                })}
+                                {dataApi[0].borders ? 
+                                    dataApi[0].borders.map((border, index) => {
+                                        return <li key={index}>{border}</li>
+                                    }) : false
+                                }
                             </ul>
                         </div>
                     </div>

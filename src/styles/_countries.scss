@@ -1,20 +1,86 @@
 $small: 375px;
 $medium: 880px;
 $large: 1220px;
-
+$border-radius: 5px;
+$drop-shadow: drop-shadow(1px 1px 2px hsl(209, 23%, 22%, 0.1));
 
 .countries{
     display: flex;
     flex-flow: column;
     width: 100vw;
     min-height: 100vh;
+    background-color: $VeryLightGray;
+    color: $VeryDarkBlueText;
+    &.dark{
+        background-color: $VeryDarkBlueBackground;
+        color: $White;
+        .card__content{
+            background-color: $DarkBlue !important;
+            color: $White;
+        }
+        .filter__input{
+            background-color: $DarkBlue !important;
+            color: $White;
+            .input__content{
+                input{
+                    background-color: $DarkBlue !important;
+                    color: $White !important;
+                    &::placeholder{
+                        color: $White;
+                    }
+                }
+            }
+        }
+        .filter__select{
+            background-color: $DarkBlue !important;
+            color: $White;
+            .select__content{
+                details{
+                    ul{
+                        background-color: $DarkBlue !important;
+                        li{
+                            background-color: $DarkBlue !important;
+                            color: $White;
+                            padding: 2px 25px 2px 25px;
+                            &:hover{
+                                background-color: $VeryLightGray;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .country__button{
+            a{
+                color: $White !important;
+            }
+            button{
+                background-color: $DarkBlue !important;
+                color : $White !important;    
+            }
+        }
+        .datail__info{
+            .info__border{
+                ul{
+                    li{
+                        background-color: $DarkBlue !important;
+                        color: $White;
+                    }
+                }
+            }
+        }
+    }
 
     .countires__nav{
         display: flex;
         width: 100%;
         height: 80px;
-        border-bottom: 1px solid $VeryLightGray;
         background-color: $White;
+        filter: $drop-shadow;
+        &.dark{
+            background-color: $DarkBlue;
+            color: $White;
+        }
         ul{
             list-style: none;
             display: flex;
@@ -22,15 +88,12 @@ $large: 1220px;
             justify-content: space-between;
             align-items: center;
             padding: 0;
-            margin-left: 80px;
-            margin-right: 80px;
+            margin: 0 80px 0 80px;
             @media screen and (max-width: $medium) {
-                margin-left: 40px;
-                margin-right: 40px;
+                margin: 0 40px 0 40px;
             }
             @media screen and (max-width: $small) {
-                margin-left: 30px;
-                margin-right: 30px;
+                margin: 0 30px 0 30px;
             }
             .nav__logo{
                 font-weight: 800;
@@ -57,29 +120,26 @@ $large: 1220px;
         .body__filter{
             display: flex;
             justify-content: space-between;
-            margin-top: 46px;
-            margin-bottom: 48px;
-            margin-left: 80px;
-            margin-right: 80px;
+            margin: 46px 80px 48px 80px;
+            position: relative;
+            z-index: 2;
             @media screen and (max-width: $medium) {
                 flex-flow: column;
                 align-items: left;
                 justify-content: center;
-                margin-left: 40px;
-                margin-right: 40px;
+                margin: 40px;
             }
             @media screen and (max-width: $small) {
-                margin-left: 30px;
-                margin-right: 30px;
+                margin: 30px;
                 flex-flow: column;
             }
             /* .filter__selector{} */
             .filter__input{
                 width: 480px;
                 background-color: $White;
-                border: 1px solid $VeryLightGray;
                 height: 55px;
-                border-radius: 5px;
+                border-radius: $border-radius;
+                filter: $drop-shadow;
                 @media screen and (max-width: $medium) {
                     max-width: 480px;
                     width: 100%;
@@ -89,8 +149,7 @@ $large: 1220px;
                 }
                 .input__content{
                     height: 100%;
-                    margin-left: 30px;
-                    margin-right: 30px;
+                    margin: 0 30px 0 30px;
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
@@ -112,7 +171,8 @@ $large: 1220px;
                 // Personalizar Selector
                 width: 200px;
                 background-color: $White;
-                border: 1px solid $VeryLightGray;
+                border-radius: $border-radius;
+                filter: $drop-shadow;
                 @media screen and (max-width: $medium) {
                     margin-top: 46px;
                 }
@@ -137,10 +197,11 @@ $large: 1220px;
                             list-style: none;
                             padding: 0;
                             width: 200px;
-                            background: $White;
+                            background-color: $White;
                             border-radius: 5px;
                             margin-top: 5px;
                             padding-top: 12px;
+                            padding-bottom: 12px;
                             li{
                                 padding: 2px 25px 2px 25px;
                                 &:hover{
@@ -163,43 +224,39 @@ $large: 1220px;
         .body__card{
             display: flex;
             flex-flow: wrap;
-            margin-left: 40px;
-            margin-right: 40px;
+            margin: 0 40px 0 40px;
             justify-content: space-evenly;
             width: fit-content;
             @media screen and (max-width: $medium) {
-                margin-left: 40px;
-                margin-right: 40px;
+                margin: 0 40px 0 40px;
             }
             @media screen and (max-width: $small) {
-                margin-left: 30px;
-                margin-right: 30px;
+                margin: 0 30px 0 30px;
                 flex-flow: column;
                 align-items: center;
                 justify-content: center;
             }
             a{
                 text-decoration: none;
-                color: $VeryDarkBlue;
+                color: $VeryDarkBlueText;
             }
             .card__content{
                 background-color: $White;
                 width: 260px;
                 height: 336px;
-                margin-bottom: 75px;
-                margin-right: 40px;
-                margin-left: 40px;
+                margin: 0 40px 75px 40px;
+                border-radius: 5px;
+                filter: drop-shadow(1px 1px 2px hsl(209, 23%, 22%, 0.1));
                 @media screen and (max-width: $medium) {
-                    margin-left: 40px;
-                    margin-right: 40px;
+                    margin: 0 40px 40px 40px;
                 }
                 @media screen and (max-width: $small) {
-                    margin-left: 30px;
-                    margin-right: 30px;
+                    margin: 0 30px 30px 30px;
                 }
                 .content__flag{
                     height: 160px;
                     img{
+                        border-radius: 5px 5px 0 0;
                         width: 100%;
                         height: 100%;
                         object-fit: cover;
@@ -233,44 +290,39 @@ $large: 1220px;
             margin-top: 79px;
             .country__button{
                 height: 40px;
-                margin-bottom: 80px;
-                margin-left: 40px;
-                margin-right: 40px;
+                margin: 0 40px 80px 40px;
                 @media screen and (max-width: $medium) {
-                    margin-left: 20px;
-                    margin-right: 20px;
+                    margin: 0 20px 20px 20px;
                 }
                 @media screen and (max-width: $small) {
-                    margin-left: 15px;
-                    margin-right: 15px;
+                    margin: 0 15px 15px 15px;
                 }
                 a{
                     text-decoration: none;
                     display: flex;
                     height: 100%;
                     align-items: center;
+                    color: $VeryDarkBlueText;
                 }
                 button{
                     padding: 0;
                     border-width: 0;
                     height: 40px;
-                    background: white;
+                    background-color: white;
                     width: 136px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
                     font-size: 16px;
                     border-radius: 5px;
-                    margin-left: 40px;
-                    margin-right: 40px;
+                    margin: 0 40px 0 40px;
                     cursor: pointer;
+                    filter: $drop-shadow;
                     @media screen and (max-width: $medium) {
-                        margin-left: 20px;
-                        margin-right: 20px;
+                        margin: 0 20px 0 20px;
                     }
                     @media screen and (max-width: $small) {
-                        margin-left: 15px;
-                        margin-right: 15px;
+                        margin: 0 15px 0 15px;
                     }
                     .hydrated{
                         margin-right: 8px;
@@ -280,36 +332,30 @@ $large: 1220px;
             .country__detail{
                 height: 400px;
                 display: flex;
-                margin-left: 40px;
-                margin-right: 40px;
+                margin: 0 40px 0 40px;
                 @media screen and (max-width: $medium) {
                     display: flex;
                     align-items: center;
                     flex-flow: column;
-                    margin-left: 20px;
-                    margin-right: 20px;
+                    margin: 0 20px 0 20px;
                 }
                 @media screen and (max-width: $small) {
                     flex-flow: column;
-                    margin-left: 15px;
-                    margin-right: 15px;
+                    margin: 0 15px 0 15px;
                 }
                 .detail__flag{
                     display: flex;
                     flex: 1;
                     max-height: 400px;
-                    margin-left: 40px;
-                    margin-right: 40px;
+                    margin: 0 40px 0 40px;
                     @media screen and (max-width: $large) {
                         margin-right: 20px;
                     }
                     @media screen and (max-width: $medium) {
-                        margin-left: 20px;
-                        margin-right: 20px;
+                        margin: 0 20px 0 20px;
                     }
                     @media screen and (max-width: $small) {
-                        margin-left: 15px;
-                        margin-right: 15px;
+                        margin: 0 15px 0 15px;
                     }
                     div{
                         width: 100%;
@@ -331,19 +377,15 @@ $large: 1220px;
                     display: flex;
                     flex: 1;
                     flex-flow: column;
-                    margin-top: 23px;
-                    margin-left: 40px;
-                    margin-right: 40px;
+                    margin: 23px 40px 0 40px;
                     @media screen and (max-width: $large) {
                         margin-left: 20px;
                     }
                     @media screen and (max-width: $medium) {
-                        margin-left: 20px;
-                        margin-right: 20px;
+                        margin: 0 20px 0 20px;
                     }
                     @media screen and (max-width: $small) {
-                        margin-left: 15px;
-                        margin-right: 15px;
+                        margin: 0 15px 0 15px;
                     }
                     .info__title{
                         h2{
@@ -382,8 +424,7 @@ $large: 1220px;
                         }
                     }
                     .info__border{
-                        margin-top: 22px;
-                        margin-bottom: 60px;
+                        margin: 22px 0 60px 0;
                         display: flex;
                         align-items: center;
                         @media screen and (max-width: $small) {
@@ -406,12 +447,12 @@ $large: 1220px;
                                 min-width: 100px;
                                 height: 30px;
                                 background-color: $White;
-                                border-radius: 5px;
+                                border-radius: $border-radius;
                                 display: flex;
                                 justify-content: center;
                                 align-items: center;
-                                margin-right: 2px;
-                                margin-left: 2px;
+                                margin: 2px 2px 0 2px;
+                                filter: $drop-shadow;
                             }
                         }
                     }
@@ -427,7 +468,7 @@ $large: 1220px;
             span{
                 margin-left: 10px;
             }
-            .icon-inner{
+            .hydrated{
                 animation: rotation 2s infinite linear;
                 @keyframes rotation {
                     from {

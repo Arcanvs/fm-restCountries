@@ -9,7 +9,7 @@ const Card = ({country: {title, flag, population, region, capital}}) => {
             <ul className="data__list">
                 <li>
                     <span>Population:</span>
-                    <span>{population}</span>
+                    <span>{population.toLocaleString()}</span>
                 </li>
                 <li>
                     <span>Region:</span>
